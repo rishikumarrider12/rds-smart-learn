@@ -1,0 +1,413 @@
+:root {
+  /* ===== RDS SMART LEARN — Official Design Tokens ===== */
+  --rds-navy: #0a2342;
+  --rds-dark-navy: #06182e;
+  --rds-secondary: #1565c0;
+  --rds-light-blue: #eaf3ff;
+  --rds-page-bg: #f7fafc;
+  --rds-card: #ffffff;
+  --rds-text: #102a43;
+  --rds-text-muted: #627d98;
+  --rds-border: #d9e2ec;
+
+  /* Legacy aliases (existing components depend on these) */
+  --sidebar-bg: #0a2342;
+  --sidebar-hover: #123058;
+  --sidebar-active: #1565c0;
+  --sidebar-border: #1c3a63;
+
+  --primary: #1565c0;
+  --primary-hover: #0a2342;
+  --primary-light: #eaf3ff;
+
+  --background: #f7fafc;
+  --surface: #ffffff;
+  --surface-subtle: #f1f5f9;
+
+  --border: #d9e2ec;
+  --border-subtle: #ecf1f7;
+
+  --text-primary: #102a43;
+  --text-secondary: #627d98;
+  --text-muted: #829ab1;
+
+  --success: #15803d;
+  --success-bg: #f0fdf4;
+  --success-border: #bbf7d0;
+
+  --warning: #b45309;
+  --warning-bg: #fffbeb;
+  --warning-border: #fde68a;
+
+  --danger: #dc2626;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+
+  --info: #1565c0;
+  --info-bg: #eaf3ff;
+  --info-border: #bfdbfe;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Professional card styling */
+.rds-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+.rds-card-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rds-card-body {
+  padding: 1.5rem;
+}
+
+/* Professional table styling */
+.rds-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.rds-table th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rds-table td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+  vertical-align: middle;
+}
+
+.rds-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.rds-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Custom scrollbar for data tables & sidebars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* ==========================================================================
+   GLOBAL LIGHT SHELL — wraps the whole app (display:contents) so every page,
+   including legacy dark-styled screens, renders in ONE consistent white +
+   navy design system. Unlayered rules here beat Tailwind @layer utilities.
+   ========================================================================== */
+
+.rds-light-shell {
+  display: contents;
+}
+
+/* Dark surfaces -> card / page tiers */
+.rds-light-shell .bg-\[\#070b19\],
+.rds-light-shell .bg-\[\#060a17\],
+.rds-light-shell .bg-\[\#060c1c\],
+.rds-light-shell .bg-\[\#080d1d\],
+.rds-light-shell .bg-\[\#080d1e\],
+.rds-light-shell .bg-\[\#050814\],
+.rds-light-shell .bg-\[\#070b18\],
+.rds-light-shell .bg-\[\#0a1126\],
+.rds-light-shell .bg-\[\#090f23\] {
+  background-color: #ffffff;
+}
+
+.rds-light-shell .bg-\[\#0b1329\],
+.rds-light-shell .bg-\[\#0d1428\],
+.rds-light-shell .bg-\[\#0c142c\],
+.rds-light-shell .bg-\[\#0d152a\],
+.rds-light-shell .bg-\[\#0e172f\],
+.rds-light-shell .bg-\[\#0d1733\],
+.rds-light-shell .bg-\[\#101b3b\],
+.rds-light-shell .bg-\[\#131d36\],
+.rds-light-shell .bg-\[\#161226\],
+.rds-light-shell .bg-\[\#18111e\],
+.rds-light-shell .bg-\[\#1a284c\],
+.rds-light-shell .bg-slate-900,
+.rds-light-shell .bg-slate-900\/80,
+.rds-light-shell .bg-slate-900\/90,
+.rds-light-shell .bg-slate-900\/60 {
+  background-color: #f7fafc;
+}
+
+.rds-light-shell .bg-slate-800,
+.rds-light-shell .bg-slate-800\/60,
+.rds-light-shell .bg-slate-800\/40,
+.rds-light-shell .bg-\[\#121d3f\] {
+  background-color: #eef3f9;
+}
+
+/* Borders */
+.rds-light-shell .border-slate-700,
+.rds-light-shell .border-slate-800,
+.rds-light-shell .border-slate-800\/80,
+.rds-light-shell .border-slate-800\/60,
+.rds-light-shell .border-cyan-500\/20,
+.rds-light-shell .border-cyan-500\/30,
+.rds-light-shell .border-cyan-500\/40,
+.rds-light-shell .border-purple-500\/30,
+.rds-light-shell .border-rose-500\/30,
+.rds-light-shell .border-amber-500\/30,
+.rds-light-shell .border-emerald-500\/40 {
+  border-color: #d9e2ec;
+}
+
+/* Primary accent buttons/surfaces -> solid secondary blue, white label kept */
+.rds-light-shell .from-cyan-500 {
+  background-image: none;
+  background-color: var(--rds-secondary);
+  color: #ffffff;
+}
+.rds-light-shell .via-sky-500 {
+  background-image: none;
+}
+.rds-light-shell .bg-cyan-500 {
+  background-color: var(--rds-secondary);
+  color: #ffffff;
+}
+.rds-light-shell .hover\:bg-cyan-400:hover,
+.rds-light-shell .hover\:bg-cyan-500:hover {
+  background-color: #0f4c9a;
+}
+
+/* Text colors on former dark backgrounds */
+.rds-light-shell .text-slate-100,
+.rds-light-shell .text-slate-200,
+.rds-light-shell .text-slate-300,
+.rds-light-shell .text-white {
+  color: var(--rds-text);
+}
+.rds-light-shell .text-slate-400,
+.rds-light-shell .text-slate-500 {
+  color: var(--rds-text-muted);
+}
+.rds-light-shell .text-cyan-300,
+.rds-light-shell .text-cyan-400 {
+  color: var(--rds-secondary);
+}
+.rds-light-shell .hover\:text-cyan-300:hover,
+.rds-light-shell .hover\:text-cyan-400:hover {
+  color: #0f4c9a;
+}
+.rds-light-shell .shadow-cyan-950\/40,
+.rds-light-shell .shadow-cyan-900\/40 {
+  box-shadow: 0 4px 12px rgba(10, 35, 66, 0.08);
+}
+
+/* Accent-tinted soft chips/backgrounds */
+.rds-light-shell .bg-cyan-500\/10,
+.rds-light-shell .bg-cyan-500\/15,
+.rds-light-shell .bg-cyan-500\/20,
+.rds-light-shell .bg-cyan-950\/30,
+.rds-light-shell .bg-blue-500\/20,
+.rds-light-shell .bg-purple-500\/20 {
+  background-color: #eaf3ff;
+}
+
+/* Inputs */
+.rds-light-shell input::placeholder,
+.rds-light-shell textarea::placeholder {
+  color: #829ab1;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ==========================================================================
+   EXTENDED GLOBAL LIGHT-SHELL COVERAGE
+   Attribute substring selectors also catch opacity variants (bg-[#060a17]/90).
+   Brand navy/blue accents stay navy with white text restored below. Semantic
+   success/warning/error colors are preserved.
+   ========================================================================== */
+
+/* Tier 1: near-black page backgrounds -> white */
+.rds-light-shell [class*="bg-[#050814"],
+.rds-light-shell [class*="bg-[#060a17"],
+.rds-light-shell [class*="bg-[#060c1c"],
+.rds-light-shell [class*="bg-[#06182e"],
+.rds-light-shell [class*="bg-[#070b18"],
+.rds-light-shell [class*="bg-[#070b19"],
+.rds-light-shell [class*="bg-[#070c1b"],
+.rds-light-shell [class*="bg-[#080d1d"],
+.rds-light-shell [class*="bg-[#080d1e"],
+.rds-light-shell [class*="bg-[#080d1f"],
+.rds-light-shell [class*="bg-[#080d21"],
+.rds-light-shell [class*="bg-[#090e1f"],
+.rds-light-shell [class*="bg-[#090f20"],
+.rds-light-shell [class*="bg-[#090f22"],
+.rds-light-shell [class*="bg-[#090f23"],
+.rds-light-shell [class*="bg-[#090f24"],
+.rds-light-shell [class*="bg-[#091024"],
+.rds-light-shell [class*="bg-[#0a1022"],
+.rds-light-shell [class*="bg-[#0a1126"],
+.rds-light-shell [class*="bg-[#0b1329"],
+.rds-light-shell [class*="bg-[#0c1326"],
+.rds-light-shell [class*="bg-[#0c142c"],
+.rds-light-shell [class*="bg-[#0c1430"] {
+  background-color: #ffffff;
+}
+
+/* Tier 2: dark navy card/surface shades -> soft light slate */
+.rds-light-shell [class*="bg-[#0a1226"],
+.rds-light-shell [class*="bg-[#0a132b"],
+.rds-light-shell [class*="bg-[#0c1630"],
+.rds-light-shell [class*="bg-[#0d1224"],
+.rds-light-shell [class*="bg-[#0d1428"],
+.rds-light-shell [class*="bg-[#0d1527"],
+.rds-light-shell [class*="bg-[#0d152a"],
+.rds-light-shell [class*="bg-[#0d162d"],
+.rds-light-shell [class*="bg-[#0d1633"],
+.rds-light-shell [class*="bg-[#0d1730"],
+.rds-light-shell [class*="bg-[#0d1733"],
+.rds-light-shell [class*="bg-[#0d1836"],
+.rds-light-shell [class*="bg-[#0e162d"],
+.rds-light-shell [class*="bg-[#0e162f"],
+.rds-light-shell [class*="bg-[#0e1633"],
+.rds-light-shell [class*="bg-[#0e172d"],
+.rds-light-shell [class*="bg-[#0e172f"],
+.rds-light-shell [class*="bg-[#0e1730"],
+.rds-light-shell [class*="bg-[#0e1733"],
+.rds-light-shell [class*="bg-[#0e1b3d"],
+.rds-light-shell [class*="bg-[#0f1730"],
+.rds-light-shell [class*="bg-[#101b3b"],
+.rds-light-shell [class*="bg-[#121d3f"],
+.rds-light-shell [class*="bg-[#131b2c"],
+.rds-light-shell [class*="bg-[#131d36"],
+.rds-light-shell [class*="bg-[#152244"],
+.rds-light-shell [class*="bg-[#152345"],
+.rds-light-shell [class*="bg-[#152450"],
+.rds-light-shell [class*="bg-[#161226"],
+.rds-light-shell [class*="bg-[#162447"],
+.rds-light-shell [class*="bg-[#172033"],
+.rds-light-shell [class*="bg-[#18111e"],
+.rds-light-shell [class*="bg-[#182b5e"],
+.rds-light-shell [class*="bg-[#1a284c"],
+.rds-light-shell [class*="bg-[#1c263d"] {
+  background-color: #f7fafc;
+}
+
+/* Extra slate surfaces with arbitrary opacity values (from audit scan) */
+.rds-light-shell .bg-slate-800\/40,
+.rds-light-shell .bg-slate-800\/50,
+.rds-light-shell .bg-slate-800\/70,
+.rds-light-shell .bg-slate-800\/95,
+.rds-light-shell .bg-slate-900\/40,
+.rds-light-shell .bg-slate-900\/50,
+.rds-light-shell .bg-slate-900\/70,
+.rds-light-shell .bg-slate-900\/95 {
+  background-color: #eef3f9;
+}
+
+/* Dark arbitrary gradient stops -> neutral light (keeps card depth, no cyan glow) */
+.rds-light-shell [class*="from-[#"] {
+  --tw-gradient-from: #eef3f9;
+}
+.rds-light-shell [class*="to-[#"] {
+  --tw-gradient-to: #f7fafc;
+}
+.rds-light-shell [class*="via-[#"] {
+  --tw-gradient-via: #e2e8f0;
+}
+
+/* Hover backgrounds on former dark surfaces */
+.rds-light-shell .hover\:bg-slate-700:hover,
+.rds-light-shell .hover\:bg-slate-800:hover,
+.rds-light-shell .hover\:bg-slate-800\/60:hover,
+.rds-light-shell .hover\:bg-slate-900:hover {
+  background-color: #e7edf4;
+}
+.rds-light-shell .hover\:bg-cyan-500\/20:hover,
+.rds-light-shell .hover\:bg-cyan-500\/30:hover,
+.rds-light-shell .hover\:bg-cyan-950\/80:hover,
+.rds-light-shell .hover\:bg-cyan-950\/70:hover {
+  background-color: #dbe9f9;
+}
+
+/* Extra dark borders (opacity + cyan variants) */
+.rds-light-shell .border-slate-700\/50,
+.rds-light-shell .border-slate-800\/50,
+.rds-light-shell .border-slate-800\/90,
+.rds-light-shell .border-cyan-400,
+.rds-light-shell .border-cyan-400\/30,
+.rds-light-shell .border-cyan-400\/40,
+.rds-light-shell .border-cyan-400\/50,
+.rds-light-shell .border-cyan-400\/60,
+.rds-light-shell .border-cyan-500\/10,
+.rds-light-shell .border-cyan-500\/50,
+.rds-light-shell .border-cyan-500\/60,
+.rds-light-shell .border-emerald-500\/30,
+.rds-light-shell .border-emerald-500\/20 {
+  border-color: #d9e2ec;
+}
+
+/* Soft navy shadows (replaces neon cyan glows) */
+.rds-light-shell .shadow-cyan-950\/80,
+.rds-light-shell .shadow-cyan-950\/60,
+.rds-light-shell .shadow-cyan-950\/40,
+.rds-light-shell .shadow-cyan-900\/50,
+.rds-light-shell .shadow-emerald-950\/40,
+.rds-light-shell .shadow-rose-950\/40 {
+  box-shadow: 0 4px 14px rgba(10, 35, 66, 0.10);
+}
+
+/*
+   ACCENT RESTORE - navy / brand-blue surfaces stay navy and keep readable white
+   text. Placed last so they override the generic light-text remaps above.
+*/
+.rds-light-shell [class*="bg-[#0a2342"],
+.rds-light-shell [class*="bg-[#0a2342"] *,
+.rds-light-shell [class*="bg-[#1565c0"],
+.rds-light-shell [class*="bg-[#1565c0"] *,
+.rds-light-shell .bg-blue-500,
+.rds-light-shell .bg-blue-500 *,
+.rds-light-shell .bg-blue-600,
+.rds-light-shell .bg-blue-600 *,
+.rds-light-shell .bg-indigo-500,
+.rds-light-shell .bg-indigo-500 *,
+.rds-light-shell .bg-indigo-600,
+.rds-light-shell .bg-indigo-600 *,
+.rds-light-shell .from-blue-500,
+.rds-light-shell .from-blue-500 *,
+.rds-light-shell .from-blue-600,
+.rds-light-shell .from-blue-600 *,
+.rds-light-shell .to-indigo-500,
+.rds-light-shell .to-indigo-500 *,
+.rds-light-shell .to-indigo-600,
+.rds-light-shell .to-indigo-600 * {
+  color: #ffffff !important;
+}

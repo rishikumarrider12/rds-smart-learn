@@ -1,0 +1,6 @@
+{
+  "name": "RDS SMART LEARN",
+  "description": "AI-Powered Smart Learning, MCQ Practice, Written Answer Evaluation, and Progress Intelligence with Deterministic Mastery Analytics for Telangana State Syllabus students (Classes 6 to 10) by Rishi Digital Solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
